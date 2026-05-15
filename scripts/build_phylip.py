@@ -5,7 +5,7 @@ with open("samples500.txt") as f:
     samples = [line.strip() for line in f if line.strip()]
 sample_set = set(samples)
 
-print("Parsing covid SNPs...")
+print("parsing covid SNPs:")
 variant_samples = defaultdict(set)
 with open("covid19-snps.tsv") as f:
     for line in f:
@@ -20,7 +20,7 @@ with open("covid19-snps.tsv") as f:
         if sample in sample_set:
             variant_samples[f"{pos}_{ref}_{alt}"].add(sample)
 
-print("Parsing outgroup SNPs...")
+print("parsing outgroup SNPs:")
 outgroup_variants = set()
 with open("outgroup-snps.tsv") as f:
     for line in f:
@@ -38,8 +38,8 @@ all_variants = sorted(variant_samples.keys() | outgroup_variants,
                       key=lambda x: int(x.split("_")[0]))
 all_samples = samples + ["NC_004718_outgroup"]
 
-print(f"Unique variants: {len(all_variants)}")
-print(f"Total samples: {len(all_samples)}")
+print(f"unique variants: {len(all_variants)}")
+print(f"total samples: {len(all_samples)}")
 
 with open("covid_tree.phy", "w") as out:
     out.write(f" {len(all_samples)} {len(all_variants)}\n")
@@ -51,4 +51,4 @@ with open("covid_tree.phy", "w") as out:
                   for v in all_variants)
     out.write(f"{'outgroup':<10} {seq}\n")
 
-print("Done! Written to covid_tree.phy")
+print("done and written to covid_tree.phy")
