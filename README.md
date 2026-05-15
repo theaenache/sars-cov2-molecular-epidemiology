@@ -9,7 +9,7 @@
 
 This project investigates genetic variants associated with virulence in SARS-CoV-2 using whole-genome sequencing data from 272,726 clinical isolates collected in the United Kingdom. The pipeline covers variant calling, genome-wide association analysis, variant annotation, and phylogenetic tree construction.
 
-**Key Finding:** Variant **3653_C_T** in **ORF1ab** (L1130F — Leucine → Phenylalanine at position 1130) was significantly associated with higher viral load (lower cycle threshold), with a mean CT of 21.34 among carriers vs. 34.03 among non-carriers (p < 2.2×10⁻¹⁶).
+We found that variant **3653_C_T** in **ORF1ab** (L1130F — Leucine → Phenylalanine at position 1130) was significantly associated with higher viral load (lower cycle threshold), with a mean CT of 21.34 among carriers vs. 34.03 among non-carriers (p < 2.2×10⁻¹⁶).
 
 ---
 
