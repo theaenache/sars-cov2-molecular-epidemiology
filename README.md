@@ -29,7 +29,7 @@ Samples were sequenced on the Illumina NovaSeq 6000 platform by the COVID-19 Gen
 
 ## Pipeline
 
-### Part 1 — Variant Calling
+### 1) Variant Calling
 **Script:** `scripts/call-variants.sh`
 
 Aligns all 272,726 SARS-CoV-2 genomes against the Wuhan-Hu-1 reference using MUMmer's `dnadiff` wrapper and extracts SNPs with `show-snps`.
@@ -42,7 +42,7 @@ bash scripts/call-variants.sh
 
 ---
 
-### Part 2 — Genome-Wide Association with Virulence
+### 2) Genome-Wide Association with Virulence
 **Script:** `scripts/gwa-ct.py`
 
 Tests each variant for association with PCR cycle threshold (CT) values using a Student's t-test. Lower CT = higher viral load = higher virulence.
@@ -63,7 +63,7 @@ python3 scripts/gwa-ct.py
 
 ---
 
-### Part 3 — Variant Annotation
+### 3) Variant Annotation
 **Script:** `scripts/variant-annotator.sh`
 
 Annotates variants using Ensembl VEP with a SARS-CoV-2-specific GTF annotation file.
@@ -76,7 +76,7 @@ bash scripts/variant-annotator.sh
 
 ---
 
-### Part 4 — Phylogenetic Tree
+### 4) Phylogenetic Tree
 **Scripts:** `scripts/snp-tree.sh`, `scripts/build_phylip.py`
 
 Builds a maximum likelihood phylogenetic tree from 500 representative SARS-CoV-2 samples using SARS-CoV-1 (NC_004718) as an outgroup. Best substitution model (TPM1uf+G4) selected by modeltest-ng.
@@ -111,11 +111,11 @@ bash scripts/snp-tree.sh
 |------|---------|---------|
 | MUMmer | 3.23 | Whole genome alignment |
 | Python | 3.12 | GWAS, phylip matrix construction |
-| scipy | — | Student's t-test |
-| Ensembl VEP | — | Variant annotation |
+| scipy | - | Student's t-test |
+| Ensembl VEP | - | Variant annotation |
 | bcftools | 1.23 | VCF manipulation |
 | modeltest-ng | 0.1.7 | Substitution model selection |
-| raxml-ng | — | Maximum likelihood tree |
+| raxml-ng | - | Maximum likelihood tree |
 
 ---
 
